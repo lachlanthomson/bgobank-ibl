@@ -8,10 +8,12 @@ This is the repo for my IBL challenge
 
 ### Build
 
-To build the Docker image, all you have to do is clone the repo and run
+To build the Docker image, all you have to do is:
 ```
+git clone https://github.com/lachlanthomson/bgobank-ibl.git
+
 cd bgobank-ibl
-docker build . -t sample-api
+docker build . -t sample-app
 ```
 
 ## Running
