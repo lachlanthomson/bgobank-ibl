@@ -8,13 +8,11 @@ This is the repo for my IBL challenge
 
 ### Build
 
-To build the Docker image, all you have to do is:
+To build the Docker image, first clone the repo then run
 ```
-git clone https://github.com/lachlanthomson/bgobank-ibl.git
-
-cd bgobank-ibl
 docker build . -t sample-app
 ```
+This compiles the image into a usable form.
 
 ## Running
 
@@ -22,3 +20,4 @@ To run the app
 ```
 docker run -dp 8086:8086 sample-app
 ```
+Then navigate to <http://localhost:8086/health> to access the api.
