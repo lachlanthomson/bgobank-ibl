@@ -19,4 +19,4 @@ docker build . -t sample-api
 To run the app
 ```
 docker run -dp 8086:8086 sample-app
-``
+```
