@@ -4,11 +4,20 @@ var appVersion = require(__dirname + '/package.json').version;
 
 var app = express();
 
+// FAILS IN DOCKER 
+// Gets the git hash
+// function getHash(){
+//     require('child_process').exec('git rev-parse HEAD', function(err, stdout) {
+//         return stdout;
+//     });
+// }
+
 // Gets the git hash
 function getHash(){
-    require('child_process').exec('git rev-parse HEAD', function(err, stdout) {
-        return stdout;
-    });
+    revision = require('child_process')
+    .execSync('git rev-parse HEAD')
+    .toString().trim();
+    return revision;
 }
 
 // Gets the name of the application
@@ -27,6 +36,7 @@ app.get('/health', function(req,res){
     out["name"] = getName();
     out["version"] = getVersion();
     out["hash"] = getHash();
+    // out["test"] = test();
     console.log(out);
     data = JSON.stringify(out);
     res.end(data);
